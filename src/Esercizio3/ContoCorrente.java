@@ -9,6 +9,7 @@ public class ContoCorrente {
     public ContoCorrente(String titolare, double saldo) {
         this.titolare = titolare;
         this.saldo = saldo;
+
         this.numeroMovimenti = 0;
     }
 
