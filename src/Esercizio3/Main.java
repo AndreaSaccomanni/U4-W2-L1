@@ -20,6 +20,7 @@ public class Main {
             co.preleva(150);
             System.out.println("Saldo OnLine disponibile: " + co.getSaldo() + "€");
         } catch (BancaException e) {
+
             System.out.println(e.getMessage());;
 
         }
