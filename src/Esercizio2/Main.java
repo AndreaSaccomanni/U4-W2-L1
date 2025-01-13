@@ -12,11 +12,10 @@ public class Main {
         int km = 0, litriConsumati = 0;
 
         try {
-
             System.out.println("Scrivi il numero dei km percorsi: ");
             km = scanner.nextInt();
             if (km < 0) {
-                logger.error("Il valore dei chilometri non può essere negativo.");
+                logger.error("Il valore dei chilometri non può essere minore di 0.");
                 return;
             }
             System.out.println("Valore registrato, km = " + km);

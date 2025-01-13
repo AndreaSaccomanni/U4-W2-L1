@@ -12,17 +12,26 @@ public class ContoCorrente {
         this.numeroMovimenti = 0;
     }
 
-    public void preleva(double cifraPrelevata) {
+    public void preleva(double cifraPrelevata) throws BancaException {
         if (numeroMovimenti < maxMovimenti) {
-            saldo = saldo - cifraPrelevata;
+            this.saldo = this.saldo - cifraPrelevata;
+            System.out.println("Hai prelevato: " + cifraPrelevata + "€");
         } else {
-            saldo = saldo - cifraPrelevata - 0.50;
+            this.saldo = this.saldo - cifraPrelevata - 0.50;
+        }
+        if (cifraPrelevata > saldo) {
+            throw new BancaException("Prelievo non disponibile: \nVuoi prelevare " + cifraPrelevata + " ma il saldo è di " + (this.saldo + cifraPrelevata));
+        }
+
+        if (this.saldo < 0) {
+            throw new BancaException("Il conto è in rosso");
         }
         numeroMovimenti++;
-        System.out.println("Saldo dopo il prelievo: " + saldo);
+
     }
 
-    public double mostraSaldo() {
+
+    public double getSaldo() {
         return saldo;
     }
 
